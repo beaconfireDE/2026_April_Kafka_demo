@@ -4,6 +4,9 @@ from confluent_kafka import Producer
 import json
 import psycopg2
 
+
+
+
 kafka_conf = {
     'bootstrap.servers': 'localhost:29092',
     'group.id': 'employee_cdc_group',
