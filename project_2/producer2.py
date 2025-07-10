@@ -7,6 +7,21 @@ from confluent_kafka import Producer
 import json
 import time
 
+# class cdcProducer():
+#     def __init__(self):
+#         pass
+#     def saveOffset(self):
+#         pass
+#     def loadOffset(self):
+#         pass
+#     def readDbToKafka(self):
+#         pass
+
+if __name__ =='__main__':
+    producer = cdcProducer()
+
+
+
 kafka_config = {'bootstrap.servers': 'localhost:29092', 'acks' : 'all'}
 db_config = { 'dbname':'postgres',
         'user':'postgres',
@@ -76,19 +91,3 @@ finally:
 
 
 
-
-# class cdcProducer():
-#     def __init__(self,db_config,kafka_config, topic):
-#         pass
-
-#     def connect_db(self):
-#         pass
-
-
-#     def scan(self):
-#         pass
-           
-# if __name__ == '__main__':
-    
-    
-    
