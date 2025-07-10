@@ -20,7 +20,7 @@ conn = psycopg2.connect(
     user='postgres',
     password='postgres',
     host='localhost',
-    port= 5432
+    port= 5432 
 )
 cursor = conn.cursor()
 
