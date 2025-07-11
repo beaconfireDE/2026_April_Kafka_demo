@@ -9,14 +9,14 @@ import time
 
 class cdcProducer():
     def __init__(self,address,dbname,dbuser,dbpassword,dbhost,dbport):
-        kafka_config = {'bootstrap.servers': address}
-        db_config = { 'dbname':dbname,
+        kafkaConfig = {'bootstrap.servers': address}
+        dbConfig = { 'dbname':dbname,
         'user': dbuser,
         'password': dbpassword,
         'host':dbhost,
         'port': dbport}
-        conn = psycopg2.connect(**db_config)
-        self.producer = Producer(kafka_config)
+        conn = psycopg2.connect(**dbConfig)
+        self.producer = Producer(kafkaConfig)
         self.cursor = conn.cursor()
 
 
