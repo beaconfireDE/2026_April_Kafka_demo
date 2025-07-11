@@ -17,4 +17,4 @@ while True:
     if msg.error():
         print(f"Error: {msg.error()}")
         continue
-    print("🔴 From DLQ:", json.loads(msg.value().decode('utf-8')))
+    print("From DLQ:", json.loads(msg.value().decode('utf-8')))

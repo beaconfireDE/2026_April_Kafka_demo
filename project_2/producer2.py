@@ -19,11 +19,10 @@ class cdcProducer():
         self.producer = Producer(kafkaConfig)
         self.cursor = conn.cursor()
 
-
+    #track the last cdc_id using,avoid resending
     def saveOffset(self,offset):
         with open('offset.txt','w') as f:
             f.write(str(offset))
-
 
     def loadOffset(self):
         try:
@@ -34,6 +33,7 @@ class cdcProducer():
         
 
     def readDbToKafka(self):
+        #read offset, init 0
         offset = self.loadOffset()
         try:
             while True:
@@ -65,10 +65,10 @@ class cdcProducer():
                     )
                     self.producer.flush()
                     print(f"ROW: {row[0]}")
+                    #save offset
                     offset = row[0]
                     self.saveOffset(offset)
                     
-
         except Exception as e:
             print(f"Error message: {e}")
 

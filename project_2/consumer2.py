@@ -37,6 +37,7 @@ class cdcConsumer():
         data = json.loads(json_str)
         return data
     
+    #consumer processes each message and applies insert, update, or delete based on the action field
     def loadDB(self,data):
         emp_id = data.get('emp_id')
         first_name = data.get('first_name')
