@@ -38,6 +38,9 @@ class MyProducer():
                             )
                     except ValueError as e:
                         print(f"Error parsing date for row {row}: {e}")
+        self.producer.flush()
+        print("All message sent")
+
 
 
 if __name__ =="__main__":
