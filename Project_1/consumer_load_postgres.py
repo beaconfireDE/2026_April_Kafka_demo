@@ -23,6 +23,31 @@ conn = psycopg2.connect(
     port= 5432 
 )
 cursor = conn.cursor()
+# Create tables first if they do not already exist
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS department_employee (
+        id SERIAL PRIMARY KEY,
+        department VARCHAR(50),
+        department_division VARCHAR(255),
+        position_title VARCHAR(255),
+        hire_date VARCHAR(50),
+        salary INTEGER
+    );
+""")
+
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS department_employee_salary (
+        department VARCHAR(50) PRIMARY KEY,
+        total_salary INTEGER
+    );
+""")
+
+conn.commit()
+
+print("Tables are ready")
+print("Start consuming data from Kafka")
+
+
 
 print("start consuming data from Kafka")
 

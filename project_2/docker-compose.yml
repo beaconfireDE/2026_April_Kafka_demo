@@ -50,7 +50,7 @@ services:
     ports:
       - '5432:5432'
     volumes:
-      - db_source:/var/lib/bf_kafka_proj2_source/data
+      - db_source:/var/lib/postgresql/data
 
   db_dst:
     image: postgres:14.1-alpine
@@ -61,7 +61,7 @@ services:
     ports:
       - '5433:5432'
     volumes:
-      - db_dst:/var/lib/bf_kafka_proj2_dst/data
+      - db_dst:/var/lib/postgresql/data
 
 volumes:
   db_source:
