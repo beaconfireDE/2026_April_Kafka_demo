@@ -44,7 +44,7 @@ class MyProducer():
 
 
 if __name__ =="__main__":
-    proj1Producter = MyProducer('localhost:29092','postgres','postgres','postgres','localhost', 5432)
+    proj1Producter = MyProducer('localhost:29092','postgres','postgres','postgres','localhost', 5434)
     proj1Producter.read_csv('Employee_Salaries.csv')
 
 
